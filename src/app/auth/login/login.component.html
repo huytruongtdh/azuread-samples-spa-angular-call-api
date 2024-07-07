@@ -1,0 +1,27 @@
+<p>login works!</p>
+
+
+<div *ngIf="!isLoggedIn">
+    <form [formGroup]="loginForm" (submit)="loginPassword()">
+        <label for="username">User name</label>
+        &nbsp;
+        <input id="username" type="text" formControlName="username">
+        &nbsp;
+
+        <label for="password">Password</label>
+        &nbsp;
+        <input id="password" type="text" formControlName="password">
+        &nbsp;
+        <button type="submit">Login</button>
+    </form>
+
+    <hr>
+    <h5>Or login with</h5>
+    <button (click)="loginAzureAD()">Azure AD</button> &nbsp;
+    <button (click)="loginGoogle()">Google</button> &nbsp;
+    <button (click)="loginFacebook()">Facebook</button> &nbsp;
+</div>
+<div *ngIf="isLoggedIn">
+    <h2>Welcome, {{ userName }}</h2>
+    <button (click)="logout()">Logout</button>
+</div>
